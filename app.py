@@ -311,63 +311,47 @@ elif page == "Interactive Diagnosis":
 elif page == "Gene Stories":
     st.title("Gene Stories")
     st.write(
-        "The decision tree relies on just five genes. Here's what each one is, the "
-        "role it plays in the tree, and where to read more. These descriptions come "
-        "from cancer research broadly — the app shows a pattern the model found in "
-        "this dataset, not proof of what causes melanoma to spread."
+        "The decision tree relies on just five genes. "
+        "Below shows what each gene is and the role "
+        "it plays in the tree. "
+        "These descriptions come from cancer research found [online](https://www.genecards.org/). "
+        "However, the app only shows a pattern the model found in this dataset ([TCGA-SKCM](https://portal.gdc.cancer.gov/projects/TCGA-SKCM)), "
+        "which is not proof of what causes melanoma to spread."
     )
 
     GENE_INFO = {
         "S100A7": {
             "full": "S100A7 (psoriasin)",
-            "what": "A calcium-binding protein made by skin keratinocytes, first "
-                    "discovered in psoriasis. It's linked to inflammation, attracting "
-                    "immune cells, and — in several epithelial skin tumors — is turned "
-                    "up as tumors progress.",
-            "role": "The tree's very first question. It splits the whole dataset in "
-                    "two, making it the single most influential gene in the model.",
+            "what": "A calcium-binding protein made by skin keratinocytes, which was first discovered in psoriasis. It's linked to inflammation, attracting immune cells, and, in certain studies, it has turned up as tumors progress. ",
+            "role": "This is the tree's very first question. The answer to this question splits the dataset in two, making it the most influential gene in the model.",
             "genecards": "https://www.genecards.org/cgi-bin/carddisp.pl?gene=S100A7",
             "wiki": "https://en.wikipedia.org/wiki/S100A7",
         },
         "C7": {
             "full": "C7 (complement component 7)",
-            "what": "A protein of the complement system — part of the body's innate "
-                    "immune defense. Its cancer link is complex: in some cancers lower "
-                    "C7 tracks with worse outcomes, in others higher C7 tracks with "
-                    "spread. That context-dependence makes it stand out.",
-            "role": "The tree's second-tier question on both branches. It repeatedly "
-                    "refines the decision after S100A7.",
+            "what": "C7 is a protein of the complement system, which is part of the body's innate immune defense. Its cancer link is complex, as in some cancers lower C7 tracks with worse outcomes, in others higher C7 tracks with spread. ",
+            "role": "The tree's second question on both branches. It refines the decision after S100A7.",
             "genecards": "https://www.genecards.org/cgi-bin/carddisp.pl?gene=C7",
             "wiki": "https://en.wikipedia.org/wiki/Complement_component_7",
         },
         "KRT17": {
             "full": "KRT17 (keratin 17)",
-            "what": "A structural filament protein in skin cells that also helps "
-                    "regulate growth, immune response, and differentiation. In many "
-                    "cancers higher KRT17 tracks with more proliferation and invasion, "
-                    "though its role can flip by tumor type.",
-            "role": "A lower-branch tiebreaker. It settles one specific primary-vs-"
-                    "metastatic split near the bottom of the tree.",
+            "what": "A structural filament protein in skin cells that also helps regulate growth and immune response. In many cancers, higher KRT17 tracks with more proliferation and invasion, though its role can change with each tumor.",
+            "role": "It makes a decision for a single lower branch. It settles a specific split near the bottom of the tree.",
             "genecards": "https://www.genecards.org/cgi-bin/carddisp.pl?gene=KRT17",
             "wiki": "https://en.wikipedia.org/wiki/Keratin_17",
         },
         "KLK5": {
             "full": "KLK5 (kallikrein-related peptidase 5)",
-            "what": "An enzyme (serine protease) highly expressed in skin, where it "
-                    "helps shed dead surface cells (desquamation). It's been reported "
-                    "as differentially expressed in several cancers.",
-            "role": "A lower-branch decision point on the left side of the tree, used "
-                    "after S100A7 and C7 to reach a conclusion.",
+            "what": "An enzyme (serine protease) that is highly expressed in the skin. It helps shed dead surface cells. It's been reported as differentially expressed in several cancers.",
+            "role": "It makes a decision for a lower branch on the left side of the tree, used after S100A7 and C7 to reach a diagnosis.",
             "genecards": "https://www.genecards.org/cgi-bin/carddisp.pl?gene=KLK5",
             "wiki": "https://en.wikipedia.org/wiki/KLK5",
         },
         "DEFB103B": {
             "full": "DEFB103B (beta-defensin 103B)",
-            "what": "An antimicrobial peptide expressed in skin epithelium, part of "
-                    "innate immune defense against microbes. It also helps bridge "
-                    "innate and adaptive immunity.",
-            "role": "The first question on the tree's right branch (when S100A7 is "
-                    "high), steering toward a primary-vs-metastatic conclusion.",
+            "what": "DEFB103B is an antimicrobial peptide expressed in skin epithelium, which is part of innate immune defense against microbes. It also helps bridge innate and adaptive immunity.",
+            "role": "The first question on the tree's right branch (when S100A7 is high), which steers the diagnosis toward a conclusion.",
             "genecards": "https://www.genecards.org/cgi-bin/carddisp.pl?gene=DEFB103B",
             "wiki": "https://en.wikipedia.org/wiki/DEFB103A",
         },
