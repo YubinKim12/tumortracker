@@ -1,9 +1,9 @@
 """
-The Metastasis Detective -- educational app.
+TumorTracker -- educational app.
 A machine-learning model classifies melanoma tumors as
 primary or metastatic based on RNA gene expression.
 
-Disclaimer of Liability:
+Disclaimer:
 - This is an educational tool and should not be used for a true diagnosis. 
 If you suspect you have melanoma, please see a medical professional.
 
@@ -16,7 +16,7 @@ import numpy as np
 
 
 st.set_page_config(
-    page_title="The Metastasis Detective",
+    page_title="TumorTracker",
     page_icon="🧬",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -172,7 +172,7 @@ def draw_tree(leaf_id):
 
 
 
-st.sidebar.title("The Metastasis Detective")
+st.sidebar.title("TumorTracker")
 page = st.sidebar.radio(
     "Explore",
     ["Home", "Interactive Diagnosis", "Gene Stories", "Model Comparison"],
@@ -191,7 +191,8 @@ st.sidebar.markdown(
 )
 
 if page == "Home":
-    st.title("The Metastasis Detective")
+    st.title("TumorTracker")
+    st.caption("Classifying melanoma tumors as primary or metastatic from gene expression")
     st.write(
         "[**Melanoma**](https://www.aacr.org/patients-caregivers/cancer/melanoma/) is a serious type of skin cancer. "
         "It develops in melanocytes, which are the cells that produce melanin, which produces skin color. "
@@ -205,7 +206,7 @@ if page == "Home":
         "This application therefore can help people and students learn about tumor types and their differences."
     )
     st.write(
-        "This Metastasis Detective uses **five machine learning models**, including Logistic Regression, Decision Tree, Random Forest, XGBoost, and SVM. "
+        "TumorTracker uses **five machine learning models**, including Logistic Regression, Decision Tree, Random Forest, XGBoost, and SVM. "
         "Each model has pros and cons, and using multiple models can help people learn the differences between tumor types and the models themselves. "
     )
     
