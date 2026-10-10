@@ -566,53 +566,21 @@ elif page == "Model Comparison":
 
     st.subheader("Where the Models Agree vs. Disagree on")
     st.write(
-        "Despite all of the models working differently, "
-        "all models keep surfacing the same few genes, such as **C7** and **S100A7**. "
-        "When independent methods agree, "
-        "it's a stronger signal that those genes really do carry information about whether melanoma has spread. "
+        "Despite all of the models working differently, all models keep surfacing the same genes, such as C7 and S100A7 (information on these genes can be found in gene stories). When independent methods agree, it's a signal that those genes do carry information about whether melanoma has spread. "
     )
 
-    st.markdown("**What these genes are:**")
-    with st.expander("C7 — complement component 7"):
-        st.write(
-            "A protein of the complement system, part of the body's innate immune "
-            "defense that helps coordinate immune responses. Its link to cancer is "
-            "complex: in some cancers lower C7 tracks with worse outcomes (a possible "
-            "tumor-suppressor role), while in others higher C7 tracks with spread. "
-            "That context-dependence is part of why it stands out here."
-        )
-    with st.expander("S100A7 — psoriasin"):
-        st.write(
-            "A calcium-binding protein made by skin keratinocytes, first found in "
-            "psoriasis. It's tied to inflammation, attracting immune cells, and — in "
-            "several epithelial skin tumors — is turned up as tumors progress."
-        )
-    with st.expander("KRT17 — keratin 17"):
-        st.write(
-            "A structural filament protein in skin cells that also helps regulate cell "
-            "growth, immune response, and differentiation. In many cancers higher "
-            "KRT17 tracks with more proliferation and invasion, though its role can "
-            "flip depending on the tumor type."
-        )
-    st.caption(
-        "While these models show a commonality in the genes between them, it only shows correlation, not causation."
-    )
+
 
     
     st.write(
         "**Not all of these models agree.** "
-        "For example, KRT17 is a good example of why comparing these models matters. "
-        "Logistic regression ranks it near the top as an ‘important gene’, and random forest rates it highly too, however, the single decision tree barely uses it."
+        "For example, KRT17 is a good example of the importance of comparing these models. Logistic regression ranks this gene of a high importance, and random forest rates it highly too, however, the single decision tree barely uses it."
     )
 
-    st.write("Each model has different definitions of 'importance.' Each model measures importance its own way, such as a signed weight, a vote count across 500 trees, or how cleanly one tree splits the data. The tree is shallow, and because KRT17 only appears in one low branch, its share looks small. On the other hand, the forest's 500 trees give it many more chances to appear.")
+    st.write("Each model has different definitions of gene importance. Each model measures importance in its own way, such as with a signed weight or a vote count across 500 trees. For example, the importance in the decision tree is small because KRT17 only appears in one branch. On the other hand, the forest's 500 trees give it many more chances to appear.")
 
     st.write("Comparing these models is important for these types of differences to be shown.")
 
     st.info(
-        "Takeaway: A gene isn't simply 'important' or 'not important.' "
-        "It really depends on which model you're looking at. "
-        "This is why using multiple models is helpful. "
-        "Each one shows something a little different."
-        # icon="💡",
+        "Takeaway: A gene isn't easily ranked by importance; instead, it depends on which model one looks at. This is why using multiple models is helpful, as they all have their differences. "
     )
