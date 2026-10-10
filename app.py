@@ -175,7 +175,7 @@ def draw_tree(leaf_id):
 st.sidebar.title("TumorTracker")
 page = st.sidebar.radio(
     "Explore",
-    ["Home", "Interactive Diagnosis", "Gene Stories", "Model Comparison"],
+    ["Home", "Model Comparison", "Interactive Diagnosis", "Gene Stories"],
 )
 st.sidebar.divider()
 st.sidebar.markdown(
