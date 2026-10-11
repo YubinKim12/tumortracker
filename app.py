@@ -190,6 +190,9 @@ st.sidebar.markdown(
     unsafe_allow_html=True,
 )
 
+st.sidebar.markdown(" ")
+st.sidebar.markdown("[Source code on GitHub](https://github.com/YubinKim12/tumortracker)")
+
 if page == "Home":
     st.title("TumorTracker")
     st.caption("Classifying melanoma tumors as primary or metastatic from gene expression")
